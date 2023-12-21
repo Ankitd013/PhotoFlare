@@ -1,13 +1,18 @@
 import { Routes } from '@angular/router';
+import { SplashPageComponent } from './splash-page/splash-page.component';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+    path: 'gallery',
+    loadComponent: () => import('./gallery/gallery.component').then((m) => m.GalleryComponent),
+  },
+  {
+    path: 'splash',
+    component: SplashPageComponent
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'splash',
     pathMatch: 'full',
   },
 ];

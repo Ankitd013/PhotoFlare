@@ -1,0 +1,45 @@
+ion-content {
+  --ion-background-color: #f5e6ca;
+  /* Set a vintage background color */
+}
+
+.retro-image-container {
+  border-radius: 10px;
+  margin: 10px;
+  // cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+
+}
+
+.retro-image-container:hover {
+  transform: scale(1.05);
+  /* Add a slight zoom effect on hover */
+}
+
+.end-message {
+  text-align: center;
+  padding: 20px;
+  color: #3498db;
+  /* Choose your preferred color */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.end-message p {
+  margin: 5px 0;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  /* Choose your preferred color */
+  font-size: 14px;
+}
+
+.heart {
+  color: #e74c3c;
+  /* Heart color, you can customize it */
+}
+

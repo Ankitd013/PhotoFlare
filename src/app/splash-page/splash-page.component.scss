@@ -1,0 +1,16 @@
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    touch-action: none;
+  }
+  
+  h1 {
+    font-size: 5vw; /* Adjust the font size based on your preference */
+    width: 60%; /* Set the width to 60% of the screen width */
+    max-width: 300px; /* Optionally, set a maximum width to avoid overly long text on larger screens */
+    text-align: center; /* Center the text within its container */
+    margin-top: 20px; /* Add spacing between the image and the text */
+  }

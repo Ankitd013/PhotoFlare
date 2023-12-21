@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <h1 style="font-family:'Macula Shaded';font-weight:normal">Photos.Clawiz</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" (ionScroll)="onGalleryScroll($event)">
+  <ion-grid>
+    <ion-row class="ion-justify-content-around" *ngFor="let photo of photos.slice(0, cardsToShow) ;let i = index">
+      <ion-col size="12" size-md="6" size-lg="4">
+        <ion-card class="retro-image-container" *ngIf="isViewInitialized"  [@fadeInAnimation]>
+          <swiper-container appSwiper #swiper [config]="swiperConfig">
+            <swiper-slide *ngFor="let img of photo.images;let j = index" swiperSlide>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" *ngIf="!imageLoaded[i]">
+                <!-- You can customize the placeholder SVG content here -->
+                <rect width="100%" height="100%" fill="#ccc" />
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff">Loading...</text>
+              </svg>
+              <img [src]="img.img" [srcset]="generateSrcset(img)" [alt]="photo.description" ngOptimizedImage width="100%" fill sizes="(max-width: 320px) 280px,
+                     (max-width: 480px) 440px,
+                     (max-width: 640px) 600px,
+                     (max-width: 800px) 760px,
+                     (max-width: 960px) 920px,
+                     (max-width: 1200px) 1080px,
+                     (max-width: 1600px) 1440px,
+                     (max-width: 1920px) 1760px,
+                     1920px" (load)="onImageLoad(i)">
+              <ion-card-header (click)="openImageOptions(photo, j)">
+                <ion-card-title>
+                  <!-- <ion-note>{{photo.description}}</ion-note> -->
+                  
+                  <ion-card-subtitle><ion-note color="medium">
+                    Posted : {{ photo.date | date:'mediumDate' }}</ion-note> | Download | Share</ion-card-subtitle>
+                </ion-card-title>
+
+              </ion-card-header>
+            </swiper-slide>
+
+          </swiper-container>
+
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="photos.length === 0 || photos.length <= cardsToShow">
+    <div class="end-message">
+      <p>You've navigated every pixel of our gallery.</p>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <div class="footer">
+    <p>Made with <span class="heart">&hearts;</span> by Ankit</p>
+    <p>&copy; 2023 Photos.Clawiz All Rights Reserved. | India</p>
+  </div>
+  <!-- Ion Infinite Scroll -->
+  <ion-infinite-scroll *ngIf="photos.length > cardsToShow" (ionInfinite)="loadMoreCards($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more photos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
