@@ -147,11 +147,11 @@ export class GalleryComponent implements OnInit {
     return screenWidth >= 768 ? 6 : 3; // Adjust the breakpoint (768) as needed
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    // Update the number of cards to show when the window is resized
-    this.cardsToShow = this.calculateCardsToShow();
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event: any) {
+  //   // Update the number of cards to show when the window is resized
+  //   this.cardsToShow = this.calculateCardsToShow();
+  // }
 
   cardsToShow: number = this.calculateCardsToShow();
   totalCards = this.photos.length;
