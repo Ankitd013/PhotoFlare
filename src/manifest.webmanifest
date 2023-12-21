@@ -1,7 +1,7 @@
 {
   "name": "Photos.Clawiz",
-  "short_name": "P.Clawiz",
-  "theme_color": "#1976d2",
+  "short_name": "Photos",
+  "theme_color": "#000000",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",

@@ -246,8 +246,7 @@ export class GalleryComponent implements OnInit {
     this._clipboardService.copyFromContent(content);
     this.presentToast('top');
   }
-
-
+  
   async presentToast(position: 'top' | 'middle' | 'bottom') {
     const toast = await this.toastController.create({
       message: 'Copied to clipboard',
