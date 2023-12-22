@@ -9,7 +9,7 @@
   <ion-grid>
     <ion-row class="ion-justify-content-around" *ngFor="let photo of photos.slice(0, cardsToShow) ;let i = index">
       <ion-col size="12" size-md="6" size-lg="4">
-        <ion-card class="retro-image-container" *ngIf="isViewInitialized"  [@fadeInAnimation]>
+        <ion-card class="retro-image-container" *ngIf="isViewInitialized" >
           <swiper-container appSwiper #swiper [config]="swiperConfig">
             <swiper-slide *ngFor="let img of photo.images;let j = index" swiperSlide>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" *ngIf="!imageLoaded[i]">

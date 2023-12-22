@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  bucketURL:'https://ghtdptywfh9hhcbe.clawiz.com',
+  rawImagePath:'org',
+  webpImagePath:'img',
+  dataURL:'/docs/'
 };
