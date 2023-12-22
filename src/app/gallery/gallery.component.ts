@@ -33,7 +33,8 @@ import { Photo } from '../photos.model';
     ]),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, SplashPageComponent, IonCard, IonRow, IonGrid, IonCol, IonCardHeader, IonCardTitle, IonNote,
+    IonInfiniteScroll, IonInfiniteScrollContent, IonCardSubtitle, NgOptimizedImage, SwiperDirective],
 })
 export class GalleryComponent implements OnInit {
   @ViewChild('swiper') swiper!: ElementRef<SwiperContainer>;
