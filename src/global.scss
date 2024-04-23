@@ -24,9 +24,15 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+// @font-face {
+//     font-family: 'Macula Shaded';
+//     font-style: normal;
+//     font-weight: normal;
+//     src: local('Macula Shaded'), url('/assets/Macula Shaded.woff') format('woff');
+// }
 @font-face {
-    font-family: 'Macula Shaded';
+    font-family: 'Papyrus';
     font-style: normal;
     font-weight: normal;
-    src: local('Macula Shaded'), url('/assets/Macula Shaded.woff') format('woff');
-    }
+    src: local('Papyrus'), url('/assets/Papyrus V1.woff') format('woff');
+}
