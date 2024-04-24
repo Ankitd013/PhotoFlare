@@ -3,20 +3,6 @@ ion-content {
   /* Set a vintage background color */
 }
 
-.retro-image-container {
-  border-radius: 5px;
-  padding-bottom: 1rem;
-  // cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-
-
-}
-
-.retro-image-container:hover {
-  transform: scale(1.05);
-  /* Add a slight zoom effect on hover */
-}
-
 .end-message {
   text-align: center;
   padding: 20px;
@@ -62,8 +48,16 @@ ion-content {
 .image img {
   height: auto;
   width: 100%;
+  border-radius: 5px;
+  padding-bottom: 1rem;
+  // cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
+.image img:hover {
+  transform: scale(1.05);
+  /* Add a slight zoom effect on hover */
+}
 /* Responsive-ness for different screen-sizes */
 @media screen and (max-width: 810px) {
   .gallery {

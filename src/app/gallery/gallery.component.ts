@@ -18,6 +18,7 @@ import { SwiperOptions } from 'swiper/types';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Photo } from '../photos.model';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-gallery',
@@ -38,6 +39,7 @@ import { Photo } from '../photos.model';
 })
 export class GalleryComponent implements OnInit {
   @ViewChild('swiper') swiper!: ElementRef<SwiperContainer>;
+  imageSize: string;
   isViewInitialized = false;
   index = 0;
   imageLoaded: boolean[] = [];
@@ -108,8 +110,23 @@ export class GalleryComponent implements OnInit {
     private _clipboardService: ClipboardService,
     private titleService: Title,
     private metaService: Meta,
-    private http: HttpClient) { 
+    private http: HttpClient,
+    private breakpointObserver: BreakpointObserver) { 
+    this.imageSize = this.calculateImageSize(window.innerWidth);
 
+      // Subscribe to breakpoint changes
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge
+    ]).subscribe(result => {
+      if (result.matches) {
+        // Update image size based on breakpoint
+        this.imageSize = this.calculateImageSize(window.innerWidth);
+      }
+    });
     }
 
   ngOnInit() {
@@ -338,4 +355,27 @@ export class GalleryComponent implements OnInit {
     });
     await actionSheet.present();
   }
+
+    // Method to calculate image size based on viewport width
+    calculateImageSize(viewportWidth: number): string {
+      if (viewportWidth <= 320) {
+        return '280px';
+      } else if (viewportWidth <= 480) {
+        return '440px';
+      } else if (viewportWidth <= 640) {
+        return '600px';
+      } else if (viewportWidth <= 800) {
+        return '760px';
+      } else if (viewportWidth <= 960) {
+        return '920px';
+      } else if (viewportWidth <= 1200) {
+        return '1080px';
+      } else if (viewportWidth <= 1600) {
+        return '1440px';
+      } else if (viewportWidth <= 1920) {
+        return '1760px';
+      } else {
+        return '1920px';
+      }
+    }
 }

@@ -5,18 +5,19 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" (ionScroll)="onGalleryScroll($event)">
+<ion-content [fullscreen]="true">
   <section class="gallery">
     <div class="image" *ngFor="let photo of photos ;let i = index">
-      <img *ngFor="let img of photo.images;let j = index" [src]="img.img" [srcset]="generateSrcset(img)" [alt]="photo.description" ngOptimizedImage width="100%" fill sizes="(max-width: 320px) 280px,
-      (max-width: 480px) 440px,
-      (max-width: 640px) 600px,
-      (max-width: 800px) 760px,
-      (max-width: 960px) 920px,
-      (max-width: 1200px) 1080px,
-      (max-width: 1600px) 1440px,
-      (max-width: 1920px) 1760px,
-      1920px" (load)="onImageLoad(i)" (click)="openImageOptions(photo, j)" class="retro-image-container">
+      <img *ngFor="let img of photo.images;let j = index"
+      [src]="img.img"
+      [srcset]="generateSrcset(img)"
+      [alt]="photo.description"
+      ngOptimizedImage
+      width="100%"
+      fill
+      [sizes]="imageSize"
+      (load)="onImageLoad(i)"
+      (click)="openImageOptions(photo, j)">
     </div>
   </section>
   <div *ngIf="photos.length === 0 || photos.length <= cardsToShow">
@@ -29,9 +30,4 @@
     <p>Made with <span class="heart">&hearts;</span> by Ankit</p>
     <p>&copy; 2023 Photos.Clawiz All Rights Reserved. | India</p>
   </div>
-  <!-- Ion Infinite Scroll -->
-  <ion-infinite-scroll *ngIf="photos.length > cardsToShow" (ionInfinite)="loadMoreCards($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more photos...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
 </ion-content>
