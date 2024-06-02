@@ -133,7 +133,7 @@ export class GalleryComponent implements OnInit {
     this.fetchPhotos()
     this.titleService.setTitle('Photos.Clawiz');
     this.metaService.updateTag({ name: 'description', content: 'Capturing the essence of life in pixels🌿📷' });
-    this.isViewInitialized = true;
+    // this.isViewInitialized = true;
   }
   // ngAfterViewInit() {
   //   // this.swiper.nativeElement.swiper.activeIndex = this.index;
@@ -156,6 +156,10 @@ export class GalleryComponent implements OnInit {
   }
   onImageLoad(index: number): void {
     this.imageLoaded[index] = true;
+    console.log(index);
+    
+    if(index===5)
+      this.isViewInitialized=true
   }
 
   fetchPhotos(): void {

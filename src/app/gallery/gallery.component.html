@@ -21,7 +21,7 @@
     </div>
   </section>
   <div *ngIf="photos.length === 0 || photos.length <= cardsToShow">
-    <div class="end-message">
+    <div class="end-message" *ngIf="isViewInitialized">
       <p>You've navigated every pixel of our gallery.</p>
     </div>
   </div>
